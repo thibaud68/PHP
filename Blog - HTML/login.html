@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Essentiel pour le responsive -->
+        
+        <title>BLOG - Se connecter</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+		<link rel="stylesheet" href="styles/styles.css">
+		<link rel="icon" type="image/png" href="images/logo.png" />		
+    </head>
+	<body>
+		<header >
+			<img id="logo" alt="logo" src="images/logo.png">
+			<h1>Mon BLOG</h1>
+			<div id="user">
+				<a href="create_account.html" title="Se connecter"><i class="fas fa-user"></i></a>
+				| 
+				<a href="login.html" title="Se connecter"><i class="fas fa-sign-in-alt"></i></a> 
+			</div>
+			<nav>
+				<img alt="burger_menu" src="images/burger.png" title="menu" />
+				<ul>
+					<li><a href="index.html" title="Page d'accueil">Accueil</a></li>
+					<li><a href="about.html" title="A propos">A propos</a></li>
+					<li><a href="blog.html" title="Blog">Blog</a></li>
+					<li><a href="contact.html" title="Contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Se connecter</h2>
+			<p>Page de connexion</p>
+			<form action="#" name="formConnect" method="post" >
+				<p><label for="mail">Mail</label><input type="email" name="mail" id="mail" /></p>
+				<p><label for="passwd">Mot de passe</label><input type="password" name="passwd" id="passwd" />
+				<input type="submit" value="Me connecter"/>
+			</form>
+			
+		</main>
+
+		<footer>
+			<p>Copyright - 	<a href="http://www.facebook.fr/"><i class="fab fa-facebook-square"></i></a> 
+							<a href="http://linkedin.com"><i class="fab fa-linkedin"></i></a>
+							<a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a>
+			</p>
+			<p><a href="mentions.html">Mentions légales</a> - 
+			<a href="contact.html">Contact</a></p>
+		</footer>
+		<script>
+			taille = 200;
+			if(document.body.clientWidth < 900){
+				taille = 100;
+			}
+			arrContent = document.getElementsByClassName("content");
+			for (i=0; i<arrContent.length;i++){
+				texte = arrContent[i].innerHTML
+				arrContent[i].innerHTML = texte.substr(0, taille)+"...";
+			}
+		</script>
+    
+	</body>
+</html>

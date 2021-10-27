@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Essentiel pour le responsive -->
+        
+        <title>BLOG - Articles</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles/styles.css">
+		<script>
+			function changePeriod(){
+				if (document.formSearch.period.value == 1){
+					document.getElementById("uniquedate").style.display = "none";
+					document.getElementById("period").style.display 	= "block";
+				}else{
+					document.getElementById("period").style.display 	= "none";
+					document.getElementById("uniquedate").style.display = "block";
+				}
+			}
+		</script>
+    </head>
+    <body>
+		<header >
+			<img id="logo" alt="logo" src="images/logo.png">
+			<h1>Mon BLOG</h1>
+			<div id="user">
+				<a href="create_account.html" title="Se connecter"><i class="fas fa-user"></i></a>
+				| 
+				<a href="login.html" title="Se connecter"><i class="fas fa-sign-in-alt"></i></a> 
+			</div>
+			<nav>
+				<img alt="burger_menu" src="images/burger.png" title="menu" />
+				<ul>
+					<li><a href="index.html" title="Page d'accueil">Accueil</a></li>
+					<li><a href="about.html" title="A propos">A propos</a></li>
+					<li class="active"><a href="blog.html" title="Blog">Blog</a></li>
+					<li><a href="contact.html" title="Contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Les articles</h2>
+			<p>Page affichant tous les articles, avec une zone de recherche sur les articles</p>
+			<form name="formSearch" method="post" action="#">
+				<fieldset>
+					<legend>Rechercher des articles</legend>
+					<p><label for="keywords">Mots clés</label><input id="keywords" type="text" name="keywords" /></p>
+					<p>	<input type="radio" name="period" checked value="0" onclick="changePeriod()" /> Par date exacte
+						<input type="radio" name="period" value="1" onclick="changePeriod()" /> Par période
+					</p>
+					<p id="uniquedate">
+						<label for="date">Date</label><input id="date" type="date" name="date" />
+					</p>
+					<p id="period">
+						<label for="startdate">Date de début</label><input id="startdate" type="date" name="startdate" />
+						<label for="enddate">Date de fin</label><input id="enddate" type="date" name="enddate" />
+					</p>
+					<p><input type="submit" value="Rechercher" /> <input type="reset" value="Réinitialiser" />
+				</fieldset>
+			</form>
+			<article>
+				<img alt="js" src="images/js.png">
+				<div>
+					<h3>LE devenir du Javascript - <span class="addDate">11/05/2017</span>
+						<span class="creator"> (test)</span>
+					</h3>
+					<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel accumsan tortor, finibus a [ ... ] tum fermentum, mauris odio consequat velit, eu hendrerit arcu magna nec tortor. Nulla facilisi.</p>
+				</div>
+			</article>
+
+			<article>
+				<img alt="html" src="images/html.png">
+				<div>
+					<h3>Qu'est-ce que le HTML? - <span class="addDate">04/04/2017</span>
+						<span class="creator"> (christel)</span>
+					</h3>
+					<p class="content">HTML (HyperText Markup Language) est un format permettant de définir les éléments variés d'une  [ ... ] tm définit le format HTML pour les PC, à cause de la limitation à 3 lettres du suffixe.
+					</p>
+				</div>
+			</article>
+
+			<article>
+				<img alt="css" src="images/CSS.png">
+				<div>
+					<h3>Utiliser le CSS correctement - <span class="addDate">08/05/2017</span>
+						<span class="creator"> (christel)</span>
+					</h3>
+					<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel accumsan tortor, finibus a [ ... ] tum fermentum, mauris odio consequat velit, eu hendrerit arcu magna nec tortor. Nulla facilisi.</p>
+				</div>
+			</article>
+
+			<article>
+				<img alt="mysql" src="images/mysql.png">
+				<div>
+					<h3>Utiliser PhpMyAdmin - <span class="addDate">21/05/2017</span>
+						<span class="creator"> (christel)</span>
+					</h3>
+					<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel accumsan tortor, finibus a [ ... ] tum fermentum, mauris odio consequat velit, eu hendrerit arcu magna nec tortor. Nulla facilisi.</p>
+				</div>
+			</article>
+
+			<article>
+				<img alt="php" src="images/php.png">
+				<div>
+					<h3>Les bases du PHP - <span class="addDate">26/04/2017</span>
+						<span class="creator"> (christel)</span>
+					</h3>
+					<p class="content">Vous en êtes où ?</p>
+				</div>
+			</article>
+
+		</main>
+
+		<footer>
+			<p>Copyright - 	<a href="http://www.facebook.fr/"><i class="fab fa-facebook-square"></i></a> 
+							<a href="http://linkedin.com"><i class="fab fa-linkedin"></i></a>
+							<a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a>
+			</p>
+			<p><a href="mentions.html">Mentions légales</a> - 
+			<a href="contact.html">Contact</a></p>
+		</footer>
+		<script>
+			changePeriod();
+		</script>
+	</body>
+</html>

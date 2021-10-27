@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Essentiel pour le responsive -->
+        
+        <title>BLOG - Contact</title>
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles/styles.css">
+		<script>
+			function verifForm(){
+				var arrElement 	= new Array("name", "surname", "mail", "subject", "content");
+				var arrMessages = new Array("Le nom est obligatoire", "Le prénom est obligatoire", "Le mail est invalide", "Le sujet est obligatoire", "Le message est obligatoire");
+				var texte_a_afficher 	= "";
+				var message_class 		= "error";
+				if (document.contactForm.captcha.value == ""){
+					texte_a_afficher = "<p>Le captcha doit être renseigné</p>";
+					document.contactForm.captcha.className = message_class;
+				}
+				if (document.contactForm.captcha.value != "W68HP"){
+					texte_a_afficher = "<p>Le captcha est faux</p>";
+					document.contactForm.captcha.className = message_class;
+				}
+				
+				for (i=0; i<arrElement.length; i++){
+					if (!document.getElementById(arrElement[i]).checkValidity()) {
+						texte_a_afficher += "<p>"+arrMessages[i]+"</p>";
+						document.getElementById(arrElement[i]).className = "error";
+					}else{
+						document.getElementById(arrElement[i]).className = "";
+					}
+				}
+				if (texte_a_afficher == ""){
+					texte_a_afficher = "Formulaire envoyé";
+					message_class 	 = "valid";
+				}
+				var objMessage = document.getElementById("message");
+				objMessage.innerHTML = texte_a_afficher;
+				objMessage.className = message_class;
+			}
+		</script>
+    </head>
+    <body>
+		<header >
+			<img id="logo" alt="logo" src="images/logo.png">
+			<h1>Mon BLOG</h1>
+			<div id="user">
+				<a href="create_account.html" title="Se connecter"><i class="fas fa-user"></i></a>
+				| 
+				<a href="login.html" title="Se connecter"><i class="fas fa-sign-in-alt"></i></a> 
+			</div>
+			<nav>
+				<img alt="burger_menu" src="images/burger.png" title="menu" />
+				<ul>
+					<li><a href="index.html" title="Page d'accueil">Accueil</a></li>
+					<li><a href="about.html" title="A propos">A propos</a></li>
+					<li><a href="blog.html" title="Blog">Blog</a></li>
+					<li class="active"><a href="contact.html" title="Contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Contact</h2> 
+			<p>Page de contact</p> 
+			<form name="contactForm" action="#" method="post" novalidate onSubmit="verifForm();return false;">
+				<p>Les informations obligatoires sont suivies d'un *</p>
+				<div id="message"></div>
+				<fieldset>
+					<legend>Envoyer un message</legend>
+					<p>Mlle <input type="radio" name="civ" value="mlle" />Mme <input type="radio" name="civ" value="mme" />M <input type="radio" name="civ" value="m" /></p>
+					<p><label for="name">Nom*</label><input required type="text" name="name" id="name" /></p>
+					<p><label for="surname">Prénom*</label><input required type="text" name="surname" id="surname" /></p>
+					<p><label for="mail">Adresse mail*</label><input required type="email" name="mail" id="mail" /></p>
+					<p><input type="checkbox" name="sendmail" id="sendmail" /> <label for="sendmail">copie du message</label></p>
+					<p><label for="tel">Numéro de téléphone</label><input type="tel" name="tel" id="tel" /></p>
+					<p><label for="subject">Sujet du message*</label><input required type="text" name="subject" id="subject" />
+					<p><label for="content">Contenu du message*</label>
+						<textarea required name="content" id="content"></textarea></p>
+					<p><input required type="checkbox" name="rgpd" id="rgpd" /> <label for="rgpd">Accepter les conditions RGPD</label></p>
+					<p><img id="captcha" src="images/captcha.gif" alt="captcha" /></p>
+					<p><label for="captcha_txt">Saisir le texte ci-dessus</label><input required type="text" name="captcha" id="captcha_txt" /></p>
+					<p><input class="btn btn-primary" type="submit" value="Envoyer le message" /></p>
+				</fieldset>
+			</form>
+			<div id="map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85245.75141192738!2d7.322364206894916!3d48.11159122156081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479165dff670c1cf%3A0xe35d7e3e616ce966!2s68000+Colmar!5e0!3m2!1sfr!2sfr!4v1539164589375" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>			
+			</div>
+		</main>
+		<footer>
+			<p>Copyright - 	<a href="http://www.facebook.fr/"><i class="fab fa-facebook-square"></i></a> 
+							<a href="http://linkedin.com"><i class="fab fa-linkedin"></i></a>
+							<a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a>
+			</p>
+			<p><a href="mentions.html">Mentions légales</a> - 
+			<a href="contact.html">Contact</a></p>
+		</footer>
+    
+	</body>
+</html>
